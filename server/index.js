@@ -1,7 +1,7 @@
 //* Loading Modules
 const express = require('express')
 const cors = require('cors')
-const todo = require('./routes/apis/todo.api')
+const todo = require('./routes/apis/todos.api')
 
 //* Creating App
 const app = express()
