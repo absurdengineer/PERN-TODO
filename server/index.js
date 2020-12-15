@@ -1,11 +1,11 @@
 //* Loading Modules
-const express, { json } = require('express')
+const express = require('express')
 const cors = require('cors')
 const app = express()
 
 //* Middlewares
 app.use(cors())
-app.use(json())
+app.use(express.json())
 
 //* App Configuration Settings
 const port = process.env.PORT || 8080
