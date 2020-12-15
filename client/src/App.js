@@ -1,25 +1,31 @@
-import logo from './logo.svg';
+import React, {useState, useEffect} from 'react'
 import './App.css';
+import Header from './components/Header/header.components';
+import ListTodo from './components/TodoContainer/todo-container.components';
+import NewTodo from './components/NewTodo/new-todo.components';
 
-function App() {
+function App(){
+  const [todos, setTodos] = useState([])
+  const getTodos = async () => {
+      try {
+          const response = await fetch('http://127.0.0.1:8080/api/todos')
+          const jsonData = await  response.json()
+          console.log(jsonData)
+          setTodos(jsonData)
+      } catch ({name, message}) {
+          console.error(`${name} : ${message}`)
+      }
+  }
+  useEffect(() => { 
+    getTodos()
+  },[])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='container p-5'>
+      <Header />
+      <NewTodo />
+      <ListTodo todos={todos} />
     </div>
-  );
+    );
 }
 
 export default App;
