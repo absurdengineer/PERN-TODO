@@ -1,0 +1,6 @@
+{
+    "PGHOST" : "localhost",
+    "PGUSER" : "dillu",
+    "PGDATABASE" : "perntodo",
+    "PGPORT" : 5432   
+}

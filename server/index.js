@@ -1,6 +1,7 @@
 //* Loading Modules
 const express = require('express')
 const cors = require('cors')
+const pool = require('./database/database.connect')
 const app = express()
 
 //* Middlewares
